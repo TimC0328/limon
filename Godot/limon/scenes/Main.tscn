@@ -8,22 +8,22 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/NPC.gd" type="Script" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 191.404, 286.749 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
-font_data = ExtResource( 5 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 33.1802, 31.7432 )
 
 [node name="Main" type="Node2D"]
@@ -36,7 +36,7 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldClip"]
 position = Vector2( 471.798, 264.058 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 
@@ -88,9 +88,9 @@ margin_left = 185.0
 margin_top = 437.0
 margin_right = 742.0
 margin_bottom = 560.0
-custom_fonts/mono_font = SubResource( 3 )
-custom_fonts/bold_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/mono_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "Test"
 text = "Test"
@@ -101,7 +101,7 @@ input_pickable = true
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="NPC"]
 texture = ExtResource( 1 )

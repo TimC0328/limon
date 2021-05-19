@@ -19,11 +19,12 @@ func _input(event):
 	if event is InputEventMouseButton:
 		dest = event.position;
 		moving = true;
+		if (target != ""):
+			target = "";
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta);
 	if collision:
-		print(collision.collider.name)
 		moving = false;
 	if moving:
 		if position != dest:

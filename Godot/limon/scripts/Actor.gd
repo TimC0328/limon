@@ -20,3 +20,6 @@ func _input_event(_viewport, event, _shape_idx):
 #	pass
 func _on_clicked():
 	print("Clicked on Actor");
+	
+func _on_collided():
+	print("Collided with Actor");
