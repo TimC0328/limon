@@ -12,7 +12,6 @@ var canMove: bool = true;
 var velocity = Vector2();
 var state = State.DEFAULT;
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hello world");

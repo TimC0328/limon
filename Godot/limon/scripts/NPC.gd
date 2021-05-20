@@ -8,26 +8,25 @@ var hasDialog: bool = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_toggle_player_collisions(false);
 	actorName = "test";
 	name = actorName;
 
 func _on_clicked():
 	print("Clicked on NPC");
-	# Expand collision box to regular size when targeted
-	collisionBox.scale = (Vector2(1,1));
+	_toggle_player_collisions(true);
 	player.target = name;
 	
 func _on_collided():
 	if (player.target == name):
 		print("Collided with " + name);
+		player.moving = false;
 		if(hasDialog):
 			_load_dialogue();
+		_toggle_player_collisions(false);
 	
 func _physics_process(delta):
 	var collision;
-	# Shrink collision boxes so player has an easier time passing by
-	if(player.position.distance_to(position) < 10):
-		collisionBox.scale = (Vector2(0.5,0.5));
 	if(state == State.IDLE):
 		collision = move_and_collide(Vector2(0,0) * delta);
 		# In case the player pushes the npc too far, have it return to original pos
@@ -38,3 +37,12 @@ func _physics_process(delta):
 	if collision:
 		_on_collided();
 	 
+func _toggle_player_collisions(switch):
+	if (!switch):
+		self.set_collision_layer_bit(1, false);
+		self.set_collision_mask_bit(0, false);
+		switch = true;
+	else:
+		self.set_collision_layer_bit(1, true);
+		self.set_collision_mask_bit(0, true);
+		switch = false;
