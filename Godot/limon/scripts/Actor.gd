@@ -10,7 +10,7 @@ var actorFile = "";
 onready var spawnPos = position;
 
 onready var player =  get_node("/root/Main/Player");
-onready var dialogWindow =  get_node("/root/Main/Windows/DialogWindow");
+onready var dialogueWindow =  get_node("/root/Main/Windows/DialogueWindow");
 onready var collisionBox = get_node("BoxCollider");
 
 # Called when the node enters the scene tree for the first time.
@@ -29,9 +29,8 @@ func _on_clicked():
 func _on_collided():
 	print("Collided with Actor");
 	
-func _load_dialog():
-	print("Initiating dialog");
-	dialogWindow.visible = true;
+func _load_dialogue():
+	dialogueWindow.visible = true;
 	player._change_player_state(1);
-	dialogWindow._load_dialog();
+	dialogueWindow._load_dialogue();
 

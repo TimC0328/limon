@@ -21,7 +21,7 @@ func _on_collided():
 	if (player.target == name):
 		print("Collided with " + name);
 		if(hasDialog):
-			_load_dialog();
+			_load_dialogue();
 	
 func _physics_process(delta):
 	var collision;

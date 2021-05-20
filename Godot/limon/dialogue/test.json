@@ -1,14 +1,14 @@
 {
-		"name": "dialog_0",
+		"name": "dialogue_0",
 		"lines": [
 				{
 						"name": "Detective Limon",
-						"image": "value_0",
+						"image": "images/icons/limon.jpg",
 						"text": "Whoops! Didn't see you there."
 				},
 				{
 						"name": "Detective Limon",
-						"image": "value_0",
+						"image": "images/icons/limon.jpg",
 						"text": "Sorry bud."
 				}
 		]
