@@ -26,7 +26,7 @@ func _input(event):
 			target = "";
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity * delta, false);
+	var collision = move_and_slide(velocity * delta);
 	if collision:
 		moving = false;
 		velocity = Vector2(0,0);

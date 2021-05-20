@@ -11,24 +11,24 @@
 [ext_resource path="res://images/backgrounds/country-platform-preview.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 565.85, 29.2953 )
+extents = Vector2( 565.85, 36.2336 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 33.1802, 31.7432 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 32
-font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 32
-font_data = ExtResource( 5 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
 size = 18
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 4 )
 
@@ -47,21 +47,21 @@ collision_mask = 3
 script = ExtResource( 3 )
 
 [node name="BoundsTop" type="CollisionShape2D" parent="WorldClip"]
-position = Vector2( 315.968, 369.919 )
+position = Vector2( 325.407, 373.695 )
 shape = SubResource( 1 )
 
 [node name="BoundsBottom" type="CollisionShape2D" parent="WorldClip"]
-position = Vector2( 321.082, 536.076 )
+position = Vector2( 322.97, 519.086 )
 shape = SubResource( 1 )
 
 [node name="NPC" type="KinematicBody2D" parent="."]
-position = Vector2( 643.702, 444.197 )
+position = Vector2( 269.928, 446.085 )
 input_pickable = true
 collision_layer = 3
 script = ExtResource( 7 )
 
 [node name="BoxCollider" type="CollisionShape2D" parent="NPC"]
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="NPC"]
 texture = ExtResource( 1 )
@@ -124,9 +124,9 @@ margin_top = 117.625
 margin_right = 82.0778
 margin_bottom = 139.625
 grow_horizontal = 2
-custom_fonts/mono_font = SubResource( 2 )
-custom_fonts/bold_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[u]Test"
 text = "Test"
@@ -140,9 +140,9 @@ margin_left = 176.756
 margin_top = 443.084
 margin_right = 733.756
 margin_bottom = 566.084
-custom_fonts/mono_font = SubResource( 2 )
-custom_fonts/bold_font = SubResource( 3 )
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/mono_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
 bbcode_text = "Test"
 text = "Test"
@@ -151,6 +151,8 @@ __meta__ = {
 }
 
 [node name="DialogueTimer" type="Timer" parent="Windows/DialogueWindow"]
+
+[node name="CharTimer" type="Timer" parent="Windows/DialogueWindow"]
 one_shot = true
 
 [node name="Viewport" type="Viewport" parent="."]

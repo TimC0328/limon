@@ -5,9 +5,11 @@ var dialogueFile;
 var text;
 var dialogueLines: int = 0;
 var dialoguePos: int = 0;
-var waiting: bool = false;
+var waiting: bool = true;
+var writingLine: bool = true;
 
 onready var player =  get_node("/root/Main/Player");
+onready var charTimer = get_child(6);
 onready var inputTimer = get_child(5);
 onready var textLabel = get_child(4);
 onready var nameTag = get_child(3);
@@ -23,7 +25,14 @@ func _input(event):
 	if(waiting):
 		return;
 	if (event is InputEventMouseButton or event is InputEventKey):
-		dialoguePos += 1;
+		waiting = true;
+		if(writingLine):
+			inputTimer.set_paused(false);
+			writingLine = false;
+			return;
+		else:
+			dialoguePos += 1;
+		inputTimer.set_paused(false);
 	else:
 		return;
 	if(dialoguePos > dialogueLines):
@@ -45,16 +54,34 @@ func _load_dialogue():
 		
 	dialoguePos = 0;
 	waiting = true;
-	inputTimer.start(1);
+	inputTimer.wait_time = 0.25;
+	inputTimer.start();
+	inputTimer.set_paused(false);
+	charTimer.wait_time = 0.025;
 	print("Initiating dialogue");
 	_next_line();
 
 func _next_line():
+	waiting = true;
 	nameTag.bbcode_text = text["lines"][dialoguePos]["name"] + ":";
 	portrait.texture = load(text["lines"][dialoguePos]["image"]);
-	textLabel.bbcode_text = text["lines"][dialoguePos]["text"];
-	waiting = true;
-	inputTimer.start(1);
+	# textLabel.bbcode_text = text["lines"][dialoguePos]["text"];
+	_draw_line(text["lines"][dialoguePos]["text"]);
 
 func _on_DialogueTimer_timeout() -> void:
+	inputTimer.set_paused(true);
 	waiting = false;
+
+func _draw_line(line):
+	var tempString = "";
+	writingLine = true;
+	for letter in line:
+		charTimer.start();
+		if(!writingLine):
+			charTimer.stop();
+			textLabel.bbcode_text = line;
+			break;
+		tempString+=letter;
+		textLabel.bbcode_text = tempString;
+		yield(charTimer, "timeout");
+
