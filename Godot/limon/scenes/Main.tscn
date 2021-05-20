@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://images/icons/limon.jpg" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://scripts/NPC.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Dialogue.gd" type="Script" id=8]
 [ext_resource path="res://images/backgrounds/country-platform-preview.png" type="Texture" id=9]
+[ext_resource path="res://sounds/sfx/typewriter.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/sfx/typewriter-ding.wav" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 565.85, 36.2336 )
@@ -154,6 +156,14 @@ __meta__ = {
 
 [node name="CharTimer" type="Timer" parent="Windows/DialogueWindow"]
 one_shot = true
+
+[node name="TypingSFX" type="AudioStreamPlayer2D" parent="Windows/DialogueWindow"]
+position = Vector2( 23.9423, 32.3096 )
+stream = ExtResource( 10 )
+
+[node name="DingSFX" type="AudioStreamPlayer2D" parent="Windows/DialogueWindow"]
+position = Vector2( 47.8845, 64.6193 )
+stream = ExtResource( 11 )
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 800, 600 )

@@ -15,6 +15,9 @@ onready var textLabel = get_child(4);
 onready var nameTag = get_child(3);
 onready var portrait = get_child(2);
 
+onready var typingSFX = get_child(7);
+onready var dingSFX = get_child(8);
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.visible = false;
@@ -54,10 +57,11 @@ func _load_dialogue():
 		
 	dialoguePos = 0;
 	waiting = true;
-	inputTimer.wait_time = 0.25;
+	inputTimer.wait_time = 0.1;
 	inputTimer.start();
 	inputTimer.set_paused(false);
 	charTimer.wait_time = 0.025;
+	dingSFX.set_pitch_scale(.9);
 	print("Initiating dialogue");
 	_next_line();
 
@@ -82,6 +86,8 @@ func _draw_line(line):
 			textLabel.bbcode_text = line;
 			break;
 		tempString+=letter;
+		typingSFX.play(0);
 		textLabel.bbcode_text = tempString;
 		yield(charTimer, "timeout");
-
+		typingSFX.stop();
+	dingSFX.play(0);
