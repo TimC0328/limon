@@ -33,4 +33,5 @@ func _load_dialog():
 	print("Initiating dialog");
 	dialogWindow.visible = true;
 	player._change_player_state(1);
+	dialogWindow._load_dialog();
 

@@ -10,7 +10,7 @@
 [ext_resource path="res://scripts/Dialog.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 191.404, 286.749 )
+extents = Vector2( 103.986, 257.032 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -36,7 +36,7 @@ input_pickable = true
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldClip"]
-position = Vector2( 471.798, 264.058 )
+position = Vector2( 535.981, 264.058 )
 shape = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]

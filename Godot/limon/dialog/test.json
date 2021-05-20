@@ -1,0 +1,15 @@
+{
+		"name": "dialog_0",
+		"lines": [
+				{
+						"name": "Detective Limon",
+						"image": "value_0",
+						"text": "Whoops! Didn't see you there."
+				},
+				{
+						"name": "Detective Limon",
+						"image": "value_0",
+						"text": "Sorry bud."
+				}
+		]
+}
