@@ -6,7 +6,12 @@ class_name Actor
 # var a: int = 2
 # var b: String = "text"
 var actorName = "actor";
+var actorFile = "";
+onready var spawnPos = position;
 
+onready var player =  get_node("/root/Main/Player");
+onready var dialogWindow =  get_node("/root/Main/Windows/DialogWindow");
+onready var collisionBox = get_node("BoxCollider");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,3 +28,9 @@ func _on_clicked():
 	
 func _on_collided():
 	print("Collided with Actor");
+	
+func _load_dialog():
+	print("Initiating dialog");
+	dialogWindow.visible = true;
+	player._change_player_state(1);
+
