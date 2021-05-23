@@ -44,9 +44,9 @@ func _input(event):
 		return;
 	_next_line();
 
-func _load_dialogue():
+func _load_dialogue(file):
 	dialogueFile = File.new();
-	dialogueFile.open("res://dialogue/test.json", File.READ);
+	dialogueFile.open(file, File.READ);
 	var content = dialogueFile.get_as_text();
 	text = JSON.parse(content).result;
 	dialogueFile.close();

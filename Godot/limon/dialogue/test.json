@@ -10,6 +10,11 @@
 						"name": "Detective Limon",
 						"image": "images/icons/limon.jpg",
 						"text": "Sorry bud."
-				}
+				},
+				{
+						"name": "Commissioner Thec",
+						"image": "images/icons/thec.jpg",
+						"text": "Come on bruh!."
+				},
 		]
 }

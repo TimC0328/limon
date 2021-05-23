@@ -12,15 +12,16 @@ var canMove: bool = true;
 var velocity = Vector2();
 var state = State.DEFAULT;
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("Hello world");
+onready var camera = get_child(2);
+var cameraOffset: int = 0;
 
 func _input(event):
 	if (state == State.DIALOG):
 		return;
 	if event is InputEventMouseButton:
-		dest = event.position;
+		dest = get_global_mouse_position();
+#		dest.x -= 400;
+#		dest.x += camera.position.x;
 		moving = true;
 		if (target != ""):
 			target = "";
@@ -43,3 +44,4 @@ func _change_player_state(newState):
 		state = State.DIALOG;
 	elif (newState == 2):
 		state = State.PAUSE;
+
