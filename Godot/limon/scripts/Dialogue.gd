@@ -13,7 +13,7 @@ onready var charTimer = get_child(6);
 onready var inputTimer = get_child(5);
 onready var textLabel = get_child(4);
 onready var nameTag = get_child(3);
-onready var portrait = get_child(2);
+onready var portrait = get_child(9);
 
 onready var typingSFX = get_child(7);
 onready var dingSFX = get_child(8);
@@ -68,7 +68,8 @@ func _load_dialogue(file):
 func _next_line():
 	waiting = true;
 	nameTag.bbcode_text = text["lines"][dialoguePos]["name"] + ":";
-	portrait.texture = load(text["lines"][dialoguePos]["image"]);
+	# portrait.texture = load(text["lines"][dialoguePos]["image"]);
+	portrait.set_animation(text["lines"][dialoguePos]["animation"]);
 	# textLabel.bbcode_text = text["lines"][dialoguePos]["text"];
 	_draw_line(text["lines"][dialoguePos]["text"]);
 
@@ -79,6 +80,7 @@ func _on_DialogueTimer_timeout() -> void:
 func _draw_line(line):
 	var tempString = "";
 	writingLine = true;
+	portrait.play("", false);
 	for letter in line:
 		charTimer.start();
 		if(!writingLine):
@@ -91,3 +93,8 @@ func _draw_line(line):
 		yield(charTimer, "timeout");
 		typingSFX.stop();
 	dingSFX.play(0);
+
+
+
+func _on_PortraitAnimated_animation_finished() -> void:
+	portrait.stop();

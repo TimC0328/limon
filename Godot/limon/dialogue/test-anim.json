@@ -3,18 +3,18 @@
 		"lines": [
 				{
 						"name": "Detective Limon",
-						"image": "images/portraits/limon/limon.jpg",
+						"animation": "limon_talk",
 						"text": "Whoops! Didn't see you there."
 				},
 				{
 						"name": "Detective Limon",
-						"image": "images/portraits/limon/limon.jpg",
+						"animation": "limon_blink",
 						"text": "Sorry bud."
 				},
 				{
 						"name": "Commissioner Thec",
-						"image": "images/portraits/thec.jpg",
+						"animation": "thec_default",
 						"text": "Come on bruh!"
-				},
+				}
 		]
 }

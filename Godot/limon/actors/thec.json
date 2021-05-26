@@ -1,0 +1,5 @@
+{
+	"name": "Commisioner Thec",
+        "dialogue":["res://dialogue/test-anim.json"],
+        "sprite": "n/a"
+}

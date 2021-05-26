@@ -20,8 +20,6 @@ func _input(event):
 		return;
 	if event is InputEventMouseButton:
 		dest = get_global_mouse_position();
-#		dest.x -= 400;
-#		dest.x += camera.position.x;
 		moving = true;
 		if (target != ""):
 			target = "";

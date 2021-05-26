@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://images/icons/limon.jpg" type="Texture" id=2]
+[ext_resource path="res://images/portraits/limon/limon.jpg" type="Texture" id=2]
 [ext_resource path="res://scripts/WorldClip.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Jackwrite.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://fonts/JackwriteBold.ttf" type="DynamicFontData" id=5]
@@ -11,6 +11,12 @@
 [ext_resource path="res://images/backgrounds/country-platform-preview.png" type="Texture" id=9]
 [ext_resource path="res://sounds/sfx/typewriter.wav" type="AudioStream" id=10]
 [ext_resource path="res://sounds/sfx/typewriter-ding.wav" type="AudioStream" id=11]
+[ext_resource path="res://images/portraits/limon/limon_talk_1.jpg" type="Texture" id=12]
+[ext_resource path="res://images/portraits/limon/limon_talk_0.jpg" type="Texture" id=13]
+[ext_resource path="res://images/portraits/limon/limon_default.jpg" type="Texture" id=14]
+[ext_resource path="res://images/portraits/limon/limon_blink_1.jpg" type="Texture" id=15]
+[ext_resource path="res://images/portraits/limon/limon_blink_0.jpg" type="Texture" id=16]
+[ext_resource path="res://images/portraits/thec.jpg" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 565.85, 36.2336 )
@@ -33,6 +39,29 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 4 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "limon_blink",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "limon_default",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "limon_talk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "thec_default",
+"speed": 0.0
+} ]
 
 [node name="Main" type="Node2D"]
 
@@ -74,7 +103,6 @@ collision_mask = 6
 [node name="Windows" type="CanvasLayer" parent="."]
 
 [node name="DialogueWindow" type="Control" parent="Windows"]
-visible = false
 margin_left = 7.87753
 margin_top = -0.489838
 margin_right = 790.878
@@ -95,15 +123,16 @@ __meta__ = {
 
 [node name="Slot" type="Panel" parent="Windows/DialogueWindow"]
 modulate = Color( 0.494118, 0.494118, 0.494118, 1 )
-margin_left = 21.2973
-margin_top = 422.762
-margin_right = 170.297
-margin_bottom = 571.762
+margin_left = 21.0
+margin_top = 357.0
+margin_right = 235.0
+margin_bottom = 571.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Portrait" type="TextureRect" parent="Windows/DialogueWindow"]
+visible = false
 modulate = Color( 1, 1, 1, 0.741176 )
 margin_left = 26.7041
 margin_top = 429.219
@@ -120,10 +149,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -218.922
-margin_top = 117.625
-margin_right = 82.0778
-margin_bottom = 139.625
+margin_left = -148.872
+margin_top = 121.781
+margin_right = 152.128
+margin_bottom = 143.781
 grow_horizontal = 2
 custom_fonts/mono_font = SubResource( 3 )
 custom_fonts/bold_font = SubResource( 4 )
@@ -137,10 +166,10 @@ __meta__ = {
 }
 
 [node name="Text" type="RichTextLabel" parent="Windows/DialogueWindow"]
-margin_left = 176.756
-margin_top = 443.084
-margin_right = 733.756
-margin_bottom = 566.084
+margin_left = 247.0
+margin_top = 447.0
+margin_right = 754.0
+margin_bottom = 570.0
 custom_fonts/mono_font = SubResource( 3 )
 custom_fonts/bold_font = SubResource( 4 )
 custom_fonts/normal_font = SubResource( 6 )
@@ -164,4 +193,11 @@ stream = ExtResource( 10 )
 position = Vector2( 47.8845, 64.6193 )
 stream = ExtResource( 11 )
 
+[node name="PortraitAnimated" type="AnimatedSprite" parent="Windows/DialogueWindow"]
+position = Vector2( 129.042, 464.514 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 7 )
+animation = "thec_default"
+
 [connection signal="timeout" from="Windows/DialogueWindow/DialogueTimer" to="Windows/DialogueWindow" method="_on_DialogueTimer_timeout"]
+[connection signal="animation_finished" from="Windows/DialogueWindow/PortraitAnimated" to="Windows/DialogueWindow" method="_on_PortraitAnimated_animation_finished"]
