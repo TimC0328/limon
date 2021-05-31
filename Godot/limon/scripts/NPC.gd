@@ -36,13 +36,3 @@ func _physics_process(delta):
 		collision = move_and_collide(Vector2(velocity) * delta);
 	if collision:
 		_on_collided();
-	 
-func _toggle_player_collisions(switch):
-	if (!switch):
-		self.set_collision_layer_bit(1, false);
-		self.set_collision_mask_bit(0, false);
-		switch = true;
-	else:
-		self.set_collision_layer_bit(1, true);
-		self.set_collision_mask_bit(0, true);
-		switch = false;

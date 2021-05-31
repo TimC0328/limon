@@ -1,0 +1,20 @@
+{
+		"name": "dialogue_0",
+		"lines": [
+				{
+						"name": "Detective Limon",
+						"animation": "limon_blink",
+						"text": "..."
+				},
+				{
+						"name": "Detective Limon",
+						"animation": "limon_talk",
+						"text": "What's this?"
+				},
+				{
+						"name": "Narrator",
+						"animation": "limon_blink",
+						"text": "*Limon picks up: bloody knife*"
+				}
+		]
+}

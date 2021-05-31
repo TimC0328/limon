@@ -38,6 +38,8 @@ func _physics_process(delta):
 func _change_player_state(newState):
 	if (newState == 0):
 		state = State.DEFAULT;
+		if(target.find("item_", 0) != -1):
+			get_node("/root/Main/"+target).queue_free();
 	elif (newState == 1):
 		state = State.DIALOG;
 	elif (newState == 2):

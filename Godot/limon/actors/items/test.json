@@ -1,0 +1,7 @@
+{
+	"name": "Bloody knife",
+    "dialogue":["res://dialogue/items/item-test.json"],
+    "sprite": "n/a",
+    "unique": "true",
+    "quantity": 1
+}

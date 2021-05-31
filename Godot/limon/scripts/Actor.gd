@@ -44,3 +44,21 @@ func _load_dialogue():
 	player._change_player_state(1);
 	dialogueWindow._load_dialogue(dialogueFile);
 
+func _change_dialogue(index):
+	dialogueFile = actorInfo["dialogue"][index];
+	print(dialogueFile);
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if(player.target != actorName):
+			_toggle_player_collisions(false);
+
+func _toggle_player_collisions(switch):
+	if (!switch):
+		self.set_collision_layer_bit(1, false);
+		self.set_collision_mask_bit(0, false);
+		switch = true;
+	else:
+		self.set_collision_layer_bit(1, true);
+		self.set_collision_mask_bit(0, true);
+		switch = false;
