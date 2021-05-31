@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://images/portraits/limon/limon.jpg" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://images/portraits/limon/limon_blink_0.jpg" type="Texture" id=16]
 [ext_resource path="res://images/portraits/thec.jpg" type="Texture" id=17]
 [ext_resource path="res://scripts/Item.gd" type="Script" id=18]
+[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 565.85, 36.2336 )
@@ -63,6 +64,13 @@ animations = [ {
 "name": "thec_default",
 "speed": 0.0
 } ]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.635294, 0.635294, 0.635294, 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 36
+font_data = ExtResource( 4 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 33.6392, 30.6818 )
@@ -203,6 +211,45 @@ position = Vector2( 129.042, 464.514 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 7 )
 animation = "thec_default"
+
+[node name="PauseWindow" type="Control" parent="Windows"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="Windows/PauseWindow"]
+margin_left = 111.203
+margin_top = 12.1964
+margin_right = 689.203
+margin_bottom = 547.196
+custom_styles/panel = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="Windows/PauseWindow"]
+margin_left = 336.544
+margin_top = 28.9586
+margin_right = 573.544
+margin_bottom = 71.9586
+custom_fonts/normal_font = SubResource( 10 )
+text = "PAUSED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="Control" parent="Windows/PauseWindow"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Notes" type="Control" parent="Windows/PauseWindow"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="Item" type="KinematicBody2D" parent="."]
 position = Vector2( 670.644, 487.441 )

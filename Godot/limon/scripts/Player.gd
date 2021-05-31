@@ -16,7 +16,7 @@ onready var camera = get_child(2);
 var cameraOffset: int = 0;
 
 func _input(event):
-	if (state == State.DIALOG):
+	if (state == State.DIALOG or state == State.PAUSE):
 		return;
 	if event is InputEventMouseButton:
 		dest = get_global_mouse_position();
@@ -42,6 +42,8 @@ func _change_player_state(newState):
 			get_node("/root/Main/"+target).queue_free();
 	elif (newState == 1):
 		state = State.DIALOG;
+		moving = false;
 	elif (newState == 2):
 		state = State.PAUSE;
+		moving = false;
 
