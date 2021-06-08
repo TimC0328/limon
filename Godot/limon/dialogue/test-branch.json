@@ -1,0 +1,88 @@
+{
+		"name": "dialogue_0",
+		"lines": [
+				{
+						"name": "Detective Limon",
+						"animation": "limon_talk",
+						"text": "Whoops! Didn't see you there.",
+                        "branch": -1
+                        
+				},
+				{
+						"name": "Detective Limon",
+						"animation": "limon_blink",
+						"text": "Sorry bud.",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "Come on bruh!",
+                        "branch": 0
+				},
+				{
+						"name": "Detective Limon",
+						"animation": "limon_talk",
+						"text": "My fault OG!",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "No worries lad!",
+                        "branch": -1
+				},
+                {
+                        "name": "EXIT"
+                },
+				{
+						"name": "Detective Limon",
+						"animation": "limon_talk",
+						"text": "Can it jabroni.",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "Oh.",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "...",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "Okay.",
+                        "branch": -1
+				},
+                {
+                        "name": "EXIT"
+                },
+				{
+						"name": "Detective Limon",
+						"animation": "limon_blink",
+						"text": "...",
+                        "branch": -1
+				},
+				{
+						"name": "Commissioner Thec",
+						"animation": "thec_default",
+						"text": "You dunce!",
+                        "branch": -1
+				},
+                {
+                        "name": "EXIT"
+                }
+
+		],
+        "branches": [
+                {
+                    "options": ["My fault OG!", "Can it jabroni", "..."],
+                    "newlines": [3, 6, 11]
+                }        
+        ]
+}

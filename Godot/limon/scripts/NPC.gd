@@ -4,7 +4,7 @@ enum State {IDLE, PATROL};
 
 var state: int = State.IDLE;
 var velocity: Vector2 = Vector2(0,0);
-var hasDialog: bool = true;
+var hasDialogue: bool = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +21,7 @@ func _on_collided():
 	if (player.target == name):
 		print("Collided with " + name);
 		player.moving = false;
-		if(hasDialog):
+		if(hasDialogue):
 			_load_dialogue();
 		_toggle_player_collisions(false);
 	

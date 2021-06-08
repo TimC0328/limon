@@ -8,7 +8,7 @@ class_name Actor
 var actorName = "actor";
 var actorFile;
 var actorInfo;
-var dialogueFile: String = "res://dialogue/test-anim.json";
+var dialogueFile: String = "res://dialogue/test-branch.json";
 
 onready var spawnPos = position;
 
