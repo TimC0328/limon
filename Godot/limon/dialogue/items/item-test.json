@@ -4,17 +4,20 @@
 				{
 						"name": "Detective Limon",
 						"animation": "limon_blink",
-						"text": "..."
+						"text": "...",
+                        "branch": -1
 				},
 				{
 						"name": "Detective Limon",
 						"animation": "limon_talk",
-						"text": "What's this?"
+						"text": "What's this?",
+                        "branch": -1
 				},
 				{
 						"name": "Narrator",
 						"animation": "limon_blink",
-						"text": "*Limon picks up: bloody knife*"
+						"text": "*Limon picks up: bloody knife*",
+                        "branch": -1
 				}
 		]
 }

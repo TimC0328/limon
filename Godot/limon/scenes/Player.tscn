@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Inventory.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 29.255, 29.4265 )
@@ -24,3 +25,6 @@ drag_margin_left = 0.5
 drag_margin_right = 0.5
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 3 )

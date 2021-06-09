@@ -1,10 +1,18 @@
 extends Actor
 
-
+class_name Item
 # Declare member variables here. Examples:
 # var a: int = 2
 # var b: String = "text"
+onready var inventory = get_node("/root/Main/Player/Inventory")
 var hasDialog: bool = true;
+var item = {
+	id = 0,
+	name = "",
+	quantity = 0,
+	unique = true,
+	slot = 0
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,20 +23,26 @@ func _ready() -> void:
 
 func _load_item():
 	_instantiate_actor("actors/items/test.json");
-	print("loading item");
+	item.id = actorInfo["id"];
+	item.name = actorInfo["name"]
+	item.quantity = actorInfo["quantity"]
+	item.unique = actorInfo["unique"]
+	actorName = "item_"+item.name
+	print("loading: " + actorName);
 	_change_dialogue(0);
 	
 func _on_clicked():
 	print("Clicked on item");
 	_toggle_player_collisions(true);
 	player.target = name;
-
+	
 func _on_collided():
 	if (player.target == name):
 		print("Collided with " + name);
 		player.moving = false;
 		if(hasDialog):
 			_load_dialogue();
+		inventory._insert_item(self.item);
 		_toggle_player_collisions(false);
 	
 func _physics_process(delta):

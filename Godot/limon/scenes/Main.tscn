@@ -115,6 +115,7 @@ collision_mask = 6
 [node name="Windows" type="CanvasLayer" parent="."]
 
 [node name="DialogueWindow" type="Control" parent="Windows"]
+visible = false
 margin_left = 7.87753
 margin_top = -0.489838
 margin_right = 790.878
@@ -218,7 +219,6 @@ scale = Vector2( 0.297668, 0.297668 )
 texture = ExtResource( 1 )
 
 [node name="PauseWindow" type="Control" parent="Windows"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 19 )
@@ -248,7 +248,6 @@ __meta__ = {
 }
 
 [node name="Inventory" type="Control" parent="Windows/PauseWindow"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
